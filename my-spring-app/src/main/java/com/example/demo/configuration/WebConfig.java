@@ -19,7 +19,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(@SuppressWarnings("null") InterceptorRegistry registry) {
-        registry.addInterceptor(tenantInterceptor).addPathPatterns("/{tenantId}/api/**");
+        registry.addInterceptor(tenantInterceptor).addPathPatterns("/{tenantId}/pub/esms/**");
         // Add the tenant interceptor to intercept all incoming requests (or specific paths)
         // registry.addInterceptor(tenantInterceptor).addPathPatterns("/api/**");
     }

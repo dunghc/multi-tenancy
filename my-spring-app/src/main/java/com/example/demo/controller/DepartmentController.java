@@ -13,23 +13,23 @@ import jakarta.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
-// @RequestMapping("/{tenantId}/api/departments")
+@RequestMapping("/{tenantId}/pub/esms/sheet/")
 public class DepartmentController {
 
     @Autowired
     private DepartmentService departmentService;
 
-    @GetMapping("/{tenantId}/api/departments")
+    @GetMapping("/data/{name}/{id}")
     @GlobalPathVariable
-    public String  getAllDepartments() {
+    public String  getAllDepartments(@PathVariable("id") String id,@PathVariable("name") String name) {
 
-        return "Handling MyData: Tenant ID: ok" ;
+        return "Handling MyData: Tenant ID: ok" + id + "  " + name;
         // Set the tenant context dynamically based on the request header
        // TenantContext.setCurrentTenant(tenantId);
         // return departmentService.findAll();
     }
 
-    @PostMapping("/{tenantId}/api/departments")
+    @PostMapping("/data")
     public Department createDepartment(@RequestBody Department department) {
         // Set the tenant context dynamically based on the request header
         //TenantContext.setCurrentTenant(tenantId);
